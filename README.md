@@ -2,7 +2,7 @@
 
 Building a from-scratch weight quantizer in raw PyTorch to shrink Qwen3-0.6B and choosing the best configuration by measured size, accuracy and speed.
 
-**Quantized model:** [Hugging Face link](https://huggingface.co/<your-username>/<your-model-name>)
+**Quantized model:** [Hugging Face link](https://huggingface.co/Amy700/qwen3-0.6b-int8-per-tensor)
 
 ## What this project does
 
