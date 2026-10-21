@@ -24,8 +24,6 @@ Post-training, weight-only quantization of [`Qwen/Qwen3-0.6B`](https://huggingfa
 | B | 8 | per channel | symmetric |
 | C | 4 | per channel | asymmetric |
 
-Only the 196 projection matrices (q, k, v, o, gate, up, down in 28 blocks) are quantized. The tied embedding/output matrix and the norm layers stay in 16-bit.
-
 ## Results
 
 | Configuration | Size (MB) | Reduction vs FP32 | Reduction vs BF16 | Weight MAE | Perplexity (change) | Speed (tok/s) | Constraints met |
