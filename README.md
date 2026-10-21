@@ -49,30 +49,11 @@ Only the 196 projection matrices (q, k, v, o, gate, up, down in 28 blocks) are q
 |---|---|
 | `qwen3_custom_quantizer_final.ipynb` | Notebook with the quantizer, evaluation, and results |
 | `quantizer_core.py` | Quantizer module (written by the notebook; needed to load the model) |
-| `results.csv` | Full results table |
-| `report.pdf` | 1-2 page report |
 
 ## How to run
 
 1. Open the notebook in Google Colab and select a GPU runtime.
 2. Run all cells from top to bottom. The notebook writes `quantizer_core.py`, evaluates the three configurations, picks the winner, and saves it to `final_quantized_model/`.
-
-## How to load the quantized model
-
-`quantizer_core.py` must be in the same folder as the weights (it is included in the model folder).
-
-```python
-from quantizer_core import load_quantized_model
-from transformers import AutoTokenizer
-
-model = load_quantized_model("final_quantized_model", device="cuda")
-tokenizer = AutoTokenizer.from_pretrained("final_quantized_model")
-
-prompt = "Explain why the sky is blue in three simple sentences."
-inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
-output = model.generate(**inputs, max_new_tokens=64)
-print(tokenizer.decode(output[0], skip_special_tokens=True))
-```
 
 ## References
 
